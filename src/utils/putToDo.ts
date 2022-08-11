@@ -2,7 +2,7 @@ import { ToDoItemWithId } from "./data-interfaces";
 
 export function putToDo(toDo: ToDoItemWithId, completionStatus: boolean): void {
   const requestOptions = {
-    method: "PUT",
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ completion: completionStatus }),
   };
