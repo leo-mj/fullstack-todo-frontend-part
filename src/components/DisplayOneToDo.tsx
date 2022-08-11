@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ToDoItemWithId } from "../utils/data-interfaces";
 import { deleteToDos } from "../utils/deleteToDo";
 import { putToDo } from "../utils/putToDo";
@@ -10,7 +9,6 @@ interface DisplayGetProps {
 }
 
 export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
-  const [completion, setCompletion] = useState<boolean>(false);
   return (
     <>
       <h2 onClick={() => prop.setToDo(prop.toDo)}>{prop.toDo.title}</h2>
