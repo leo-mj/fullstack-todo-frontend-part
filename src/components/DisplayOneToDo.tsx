@@ -1,17 +1,16 @@
-import { useEffect } from "react";
 import { ToDoItemWithId } from "../utils/data-interfaces";
 
 interface DisplayGetProps {
-    props: ToDoItemWithId;
+  toDo: ToDoItemWithId;
 }
 
-export function DisplayOneToDo({props}: DisplayGetProps): JSX.Element {
-    return (
-        <>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
-            {(props.completed === true) && <h2>☑️</h2>}
-            {(props.completed === false) && <h2>☐</h2>}
-        </>
-    )
+export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
+  return (
+    <>
+      <h2>{prop.toDo.title}</h2>
+      <p>{prop.toDo.description}</p>
+      {prop.toDo.completed === true && <h2>☑️</h2>}
+      {prop.toDo.completed === false && <h2>☐</h2>}
+    </>
+  );
 }
