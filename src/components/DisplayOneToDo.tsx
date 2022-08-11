@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ToDoItemWithId } from "../utils/data-interfaces";
 import { deleteToDos } from "../utils/deleteToDo";
+import { putToDo } from "../utils/putToDo";
 
 interface DisplayGetProps {
   toDo: ToDoItemWithId;
@@ -18,10 +19,10 @@ export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
       )}
       <p>{prop.toDo.description}</p>
       {prop.toDo.completed === true && (
-        <h2 onClick={() => setCompletion(false)}>☑️</h2>
+        <h2 onClick={() => putToDo(prop.toDo, false)}>☑️</h2>
       )}
       {prop.toDo.completed === false && (
-        <h2 onClick={() => setCompletion(true)}>☐</h2>
+        <h2 onClick={() => putToDo(prop.toDo, true)}>☐</h2>
       )}
       <button
         onClick={() => {
