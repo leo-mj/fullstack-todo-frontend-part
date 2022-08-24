@@ -10,7 +10,7 @@ interface DisplayGetProps {
 
 export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
   return (
-    <>
+    <div className="oneToDo">
       <h2 onClick={() => prop.setToDo(prop.toDo)}>{prop.toDo.title}</h2>
       {prop.currentToDoState !== null && (
         <button onClick={() => prop.setToDo(null)}>return to all to-dos</button>
@@ -30,6 +30,6 @@ export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
       >
         Delete to-do
       </button>
-    </>
+    </div>
   );
 }

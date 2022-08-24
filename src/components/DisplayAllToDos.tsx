@@ -16,7 +16,7 @@ export function DisplayAllToDos(prop: DisplayAllToDosProps): JSX.Element {
   return (
     <>
       {allTodos && (
-        <>
+        <div className="allToDos">
           {allTodos.map((oneToDo: ToDoItemWithId) => (
             <DisplayOneToDo
               key={oneToDo.id}
@@ -25,7 +25,7 @@ export function DisplayAllToDos(prop: DisplayAllToDosProps): JSX.Element {
               setToDo={prop.setOneToDo}
             />
           ))}
-        </>
+        </div>
       )}
     </>
   );

@@ -14,9 +14,9 @@ export function AddToDo({
   setDraftDescription,
 }: AddToDoProps): JSX.Element {
   return (
-    <>
+    <div>
       <h2>Add a to-do:</h2>
-      <div>
+      <div className="toDoAdder">
         <input
           type="text"
           value={draftTitle}
@@ -31,7 +31,7 @@ export function AddToDo({
           Delete title
         </button>
       </div>
-      <div>
+      <div className="toDoAdder">
         <textarea
           className="DraftDescription"
           value={draftDescription}
@@ -48,6 +48,7 @@ export function AddToDo({
       {draftTitle !== ("" || undefined) &&
         draftDescription !== ("" || undefined) && (
           <button
+            className="adderElement"
             onClick={() => {
               postToDo(draftTitle, draftDescription);
               setDraftTitle("");
@@ -57,6 +58,6 @@ export function AddToDo({
             Save to-do
           </button>
         )}
-    </>
+    </div>
   );
 }
