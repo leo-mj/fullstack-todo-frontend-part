@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { ToDoItemWithId } from "../utils/data-interfaces";
 import { deleteToDos } from "../utils/deleteToDo";
 import { putToDo } from "../utils/putToDo";
+import { ToDoEditor } from "./ToDoEditor";
 
 interface DisplayGetProps {
   toDo: ToDoItemWithId;
@@ -9,13 +11,20 @@ interface DisplayGetProps {
 }
 
 export function DisplayOneToDo(prop: DisplayGetProps): JSX.Element {
+  const previousDescription = prop.toDo.description;
+  const [editText, setEditText] = useState<string>(prop.toDo.description);
   return (
     <div className="oneToDo">
       <h2 onClick={() => prop.setToDo(prop.toDo)}>{prop.toDo.title}</h2>
       {prop.currentToDoState !== null && (
         <button onClick={() => prop.setToDo(null)}>return to all to-dos</button>
       )}
-      <p>{prop.toDo.description}</p>
+      <ToDoEditor
+        previousDescription={previousDescription}
+        id={prop.toDo.id}
+        editText={editText}
+        setEditText={setEditText}
+      />
       {prop.toDo.completed === true && (
         <h2 onClick={() => putToDo(prop.toDo, false)}>☑️</h2>
       )}

@@ -11,6 +11,9 @@ export function DisplayAllToDos(prop: DisplayAllToDosProps): JSX.Element {
   useEffect(() => {
     fetch("https://to-do-lm-app.herokuapp.com/todos")
       .then((response) => response.json())
+      .then((jsonBody) =>
+        jsonBody.sort((a: ToDoItemWithId, b: ToDoItemWithId) => b.id - a.id)
+      )
       .then((jsonBody: ToDoItemWithId[]) => setAllTodos(jsonBody));
   }, [allTodos]);
   return (
