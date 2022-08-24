@@ -9,7 +9,7 @@ interface DisplayAllToDosProps {
 export function DisplayAllToDos(prop: DisplayAllToDosProps): JSX.Element {
   const [allTodos, setAllTodos] = useState<ToDoItemWithId[]>();
   useEffect(() => {
-    fetch("https://to-do-lm-app.herokuapp.com/to-dos")
+    fetch("https://to-do-lm-app.herokuapp.com/todos")
       .then((response) => response.json())
       .then((jsonBody: ToDoItemWithId[]) => setAllTodos(jsonBody));
   }, [allTodos]);

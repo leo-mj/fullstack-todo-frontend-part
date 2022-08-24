@@ -8,7 +8,7 @@ export function postToDo(draftTitle: string, draftDescription: string): void {
       completed: false,
     }),
   };
-  fetch("https://to-do-lm-app.herokuapp.com/to-dos", requestOptions).then(
+  fetch("https://to-do-lm-app.herokuapp.com/todos", requestOptions).then(
     (response) => response.json()
   );
 }
